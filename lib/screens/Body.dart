@@ -1,24 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/models/weather.dart';
+import 'package:untitled/models/services/services.dart';
 
 class New extends StatefulWidget {
-  const New({Key? key}) : super(key: key);
-
   static const String imageUrl = "https://image.tmdb.org/t/p/w500";
 
   @override
   State<New> createState() => _NewState();
 }
 
-final _apiWeather = Weather();
+final _apiWeather = Base();
 
 class _NewState extends State<New> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 250,
-      // width: 30,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -30,7 +27,8 @@ class _NewState extends State<New> {
           Text("The next 5 days"),
           FutureBuilder(
             future: _apiWeather.getFromApi('Weather'),
-            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot)
+            {
               if (snapshot.connectionState == ConnectionState.waiting){
                 return const Center(
                   child:  CircularProgressIndicator(),
@@ -119,13 +117,15 @@ class _NewState extends State<New> {
                         ],
                       );
                     });
-              };
-
+              }
+              else{return Container(
+                color: Colors.deepPurple,
+              );
+              }
             },
           ),
         ],
       ),
-      //   color: Colors.white,
     );
   }
 }

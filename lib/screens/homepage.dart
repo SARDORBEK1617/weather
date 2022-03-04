@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/screens/secondpage.dart';
 
 import 'Body.dart';
 
@@ -32,7 +33,13 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(
+                        context).push(
+                         MaterialPageRoute(
+                            builder: (context) =>
+                              const Locations()));
+                  },
                   icon: Icon(
                     Icons.search,
                     color: Colors.black,
@@ -100,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            const New(),
+            New(),
 
           ],
         ),

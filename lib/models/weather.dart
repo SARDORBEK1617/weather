@@ -9,10 +9,10 @@ class Weather {
     this.description,
   });
 
-  Weather.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    main = json['main'];
-    description = json['description'].cast<int>();
+  Weather.fromJson(Map<String, dynamic> map) {
+    id = map['id'];
+    main = map['main'];
+    description = map['description'].cast<int>();
   }
 
   Map<String, dynamic> toJson() {
