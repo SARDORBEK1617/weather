@@ -1,7 +1,7 @@
 class Weather {
   int? id;
   String? main;
-  List<int>? description;
+  String? description;
 
   Weather({
     this.id,
@@ -12,7 +12,7 @@ class Weather {
   Weather.fromJson(Map<String, dynamic> map) {
     id = map['id'];
     main = map['main'];
-    description = map['description'].cast<int>();
+    description = map['description'];
   }
 
   Map<String, dynamic> toJson() {

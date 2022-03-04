@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/screens/secondpage.dart';
 
-import 'Body.dart';
+import 'body.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               radius: 70,
               child: Column(
                 children: [
-                  Image.network("src"),
+                  // Image.network("src"),
                   Text("10* C"),
                 ],
               ),
@@ -107,8 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            New(),
-
+            Body(),
           ],
         ),
       ),
