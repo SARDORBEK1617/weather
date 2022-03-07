@@ -1,17 +1,21 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_glow/flutter_glow.dart';
+import 'package:untitled/models/services/services.dart';
 import 'package:untitled/screens/secondpage.dart';
 
 import 'body.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+ // final Weather weather;
+  const MyHomePage({Key? key, weather,
+    // required this.weather
+  }) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -48,7 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Text("Today,February,23th,2022"),
-            Text("Barcelona"),
+            SizedBox(height: 20,),
+            GlowText(
+              Base().q,
+              style: const TextStyle(
+                height: 0.3,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold),),
+
             Text("Spain"),
             CircleAvatar(
               backgroundColor: Colors.white,
@@ -113,4 +124,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
 }

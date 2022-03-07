@@ -6,6 +6,7 @@ import 'package:untitled/models/services/services.dart';
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
 
+  //static const String imageUrl ="http://image.tmdb.org/t/p/w500";
   @override
   State<Body> createState() => _BodyState();
 }
@@ -28,7 +29,7 @@ class _BodyState extends State<Body> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8.0,top: 26),
+            padding: const EdgeInsets.only(left: 8.0,top: 26,bottom: 8.0),
             child: const Text("The next 5 days",style: TextStyle(fontWeight: FontWeight.bold),),
           ),
           FutureBuilder(
@@ -47,27 +48,33 @@ class _BodyState extends State<Body> {
                       itemBuilder: (BuildContext context, int index) {
                         return Column(
                           children: [
-                            // Text(weather: snapshot.data[index]as Weather),
+                            Text("Monday"),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(4.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
                                     color: Colors.grey,
                                   ),
-                                  borderRadius: BorderRadius.all(
+                                  borderRadius:const BorderRadius.all(
                                     Radius.circular(20),
                                   ),
                                 ),
-                                height: 70,
-                                width: 70,
-                                child: Text((snapshot.data[index] as Forecast)
-                                    .weather![0]
-                                    .description!),
-                                //color: Colors.white,
+                                height: 66,
+                                width: 66,
+                                child: Column(
+                                  children: [
+                                    Text((snapshot.data[index] as Forecast)
+                                        .weather![0]
+                                        .description!,style:const TextStyle(color: Colors.deepPurple),),
+                                    Image.asset("name"),
+                                    movieItem(snapshot.data[index]as Forecast),
+                                  ],
+                                ),
                               ),
                             ),
+
                           ],
                         );
                       }),
@@ -82,5 +89,8 @@ class _BodyState extends State<Body> {
         ],
       ),
     );
+  }
+  Widget movieItem(Forecast data){
+    return Text("${data.id}");
   }
 }
