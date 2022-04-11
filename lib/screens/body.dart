@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/models/forecast.dart';
-import 'package:untitled/models/services/services.dart';
+import 'package:weather/models/weather.dart';
+
+import '../models/forecast.dart';
+import '../models/services/services.dart';
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
+
+  // final Weather weather;
+
 
   //static const String imageUrl ="http://image.tmdb.org/t/p/w500";
   @override
@@ -65,11 +70,13 @@ class _BodyState extends State<Body> {
                                 width: 66,
                                 child: Column(
                                   children: [
-                                    Text((snapshot.data[index] as Forecast)
-                                        .weather![0]
-                                        .description!,style:const TextStyle(color: Colors.deepPurple),),
-                                    Image.asset("name"),
-                                    movieItem(snapshot.data[index]as Forecast),
+                                    Text((snapshot.data[index] as Forecast).weather![0].description!,
+                                      style:const TextStyle(color: Colors.deepPurple),),
+                                    SizedBox(height: 2,),
+                                    Text(widget.toString()),
+                                    // Text((snapshot.data[index] as Forecast).weather![0].main!,
+                                    //   style:const TextStyle(color: Colors.deepPurple),),
+                                   // movieItem(snapshot.data[index]as Forecast),
                                   ],
                                 ),
                               ),

@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:untitled/models/forecast.dart';
+
+import '../forecast.dart';
 
 
 class Base {
   final String _apiKey = '&appid=baf82b9931f7e32b4dbc1bafa09f1e99';
-  final String _baseUrl =
-      'https://api.openweathermap.org/data/2.5/forecast?q=';
+  final String _baseUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=';
   final String q = 'Tashkent';
   final String _cnt = '&cnt=5';
 

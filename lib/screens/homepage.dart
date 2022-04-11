@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
-import 'package:untitled/models/services/services.dart';
-import 'package:untitled/screens/secondpage.dart';
+import 'package:weather/models/weather.dart';
+import 'package:weather/screens/secondpage.dart';
 
+import '../models/services/services.dart';
 import 'body.dart';
 
 class MyHomePage extends StatefulWidget {
  // final Weather weather;
-  const MyHomePage({Key? key, weather,
+   MyHomePage({Key? key,  this.weathers,
     // required this.weather
   }) : super(key: key);
+
+   final Weather weathers;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -17,7 +20,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -67,7 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 children: [
                   // Image.network("src"),
-                  Text("10* C"),
+                  Text(widget.weathers!.main!,
+                  style: TextStyle(fontSize: 42),),
                 ],
               ),
             ),
